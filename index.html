@@ -10,9 +10,11 @@
 
 	<body>
 		<header id="header-items">
-			<div class="high_scores">View High Scores</div>
+			<div class="highScores">View High Scores
+                <a href="./highScoreList.html" id="highScores"></a>
+            </div>
 			<div class="timer">Time:</div>
-			<div class="time_left"></div>
+			<div class="timeLeft"></div>
 		</header>
 		<br />
 
@@ -31,37 +33,34 @@
 
 		<!-- quiz question box -->
 		<section id="quizBox">
-			<div class="quizQuestion">
-				<!-- question inserted from Javascript array -->
+			<div class="quizQuestion"><h1></h1>
+                <!-- question inserted from Javascript array -->
 			</div>
-
 			<div class="answerList">
 				<!-- answers inserted from Javascript array onto buttons-->
-			</div class="button">
-
-			<button id="answer1">answer-1</button>
-			<button id="answer2">answer-2</button>
-			<button id="answer3">answer-3</button>
-			<button id="answer4">answer-4</button>
+			<button class="button" id="answer1"></button>
+			<button class="button" id="answer2"></button>
+			<button class="button" id="answer3"></button>
+			<button class="button" id="answer4"></button>
 			<div id="questionAnswer"></div>
 		</section>
 
 		<!-- End of quiz summary box-->
-		<section id="end_box">
+		<section id="endBox">
 			<div class="title"><h1>All done!</h1></div>
-			<div class="quiz_result">
+			<div class="quizResult">
 				<!-- score result inserted from Javascript -->
 			</div>
-			<div class="score_save">
+			<div class="scoreSave">
 				<!-- Input initials in Javascript to save score -->
 				<button class="submit-score">Submit</button>
 			</div>
 		</section>
 
         <!-- final box showing high scores and option to redo quiz -->
-		<section id="final_box">
+		<section id="finalBox">
 			<div class="title"><h1>HIGH SCORES</h1></div>
-			<div class="high_score_list">
+			<div class="highScoreList">
 				<!-- high score array displayed with Javascript -->
 			</div>
 			<div class="button">

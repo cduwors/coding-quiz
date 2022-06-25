@@ -69,14 +69,14 @@ p {
 	text-align: center;
 }
 
-#quiz_box {
+#quizBox {
 	display: none;
 }
 
-#end_box {
+#endBox {
 	display: none;
 }
 
-#final_box {
+#finalBox {
 	display: none;
 }

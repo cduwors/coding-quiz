@@ -60,18 +60,18 @@ function showQuestion() {
 }
 
 function timer() {
-	var timeLeft = 75;
+	var timeLeft = "75";
 
 	// sets the function for the time interval variable
 	var timeInterval = setInterval(function () {
 		// creates if/else statement based on the time left:
-		if (timeLeft > 1) {
+		if (timeLeft > 0) {
 			timerEl.textContent = "Timer: " + timeLeft;
 			timeLeft--;
 		} // set timer to stop at 0
 		else {
-			timerEl.textContent = "";
 			clearInterval(timeInterval);
+			timerEl.textContent = "Time is up!";
 			displayMessage();
 		}
 	}, 1000);

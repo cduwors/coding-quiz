@@ -1,75 +1,102 @@
 var startButton = document.getElementById("startButton");
+var questionList = document.getElementById("quizQuestion");
+var questionNumber = 0;
+var answerList = document.getElementById("answerList");
+var button = console.log("page started");
 
-//create function for start button
-
-//hide quizBox and endBox
+//create event listener for start button that activates change to quiz questions (see bottom line)
 
 function showQuiz() {
 	//clear the div startBox
+	//hide start box and show quiz question box
 	document.getElementById("startBox").innerHTML = "";
 	document.getElementById("quizBox").style.display = "block";
 	document.getElementById("endBox").innerHTML = "";
 	document.getElementById("finalBox").innerHTML = "";
 
+	console.log("In ShowQuiz function");
+	showQuestion();
+
 	//start timer
-	//loop through questions
-	for (let i = 0; i < quizQuestions.length; i++) {
-        document.getElementById("quizQuestion") = 
 
-	}
-
-	//hide start box and show quiz question box
-	// document.getElementById("startBox").style.display="none"; //to hide
-	// document.getElementById("quizBox").style.display="block"; //to show
-	console.log("in the function");
+	// document.querySelector("#quizQuestion").innerHTML =
+	// 	quizQuestions[i].question;
 }
-//compare and check answer choice - display Correct! or Wrong!
-//if wrong then subtract 10 seconds from timer
-function compareAnswers() {}
+//show question with buttons
+function showQuestion() {
+	var title = document.createElement("h1");
+	title.textContent = quizQuestions[questionNumber].question;
+	questionList.appendChild(title);
+	console.log(title);
+	for (let i = 0; i < 4; i++) {
+		var button = document.createElement("button");
+		// button.classList("answerButton");
+		var answers = quizQuestions[questionNumber].answers[i];
+		button.textContent = answers;
+		answerList.appendChild(button);
+	}
+}
+//check question
+function quesResult() {
+	console.log("in results function");
+	var results = document.createElement("h1");
+	if ((button = quizQuestions[questionNumber].questionAnswer[i])) {
+		results.textContent = "CORRECT!";
+		console.log("correct");
+	} else {
+		results.textContent = "SORRY, THAT IS INCORRECT.";
+		console.log("incorrect");
+	}
+}
+
+// // function displayAnswers() {
+// // 	for (let i = 0; i < quizQuestions.answers.length; i++) {
+// // 		const element = array[i];
+// // 	}
+// // }
+// //compare and check answer choice - display Correct! or Wrong!
+// //if wrong then subtract 10 seconds from timer
+// function compareAnswers() {}
 
 //create question array
-var quizQuestions = [
+const quizQuestions = [
 	{
-		question1: "Commonly used data types DO Not Include:",
-		answer1: "1. strings",
-        answer2: "2. booleans",
-        answer3: "3. alerts",
-        answer4: "4. numbers",
+		question: "Commonly used data types DO Not Include:",
+		answers: ["strings", "booleans", "alerts", "numbers"],
 		questionAnswer: "booleans",
 	},
 	{
-		question2: "The condition in an if/else statement is enclosed with _________.",
-		answer1: "1. quotes",
-        answer2: "2. curly brackets",
-		answer3: "3. parenthesis",
-		answer4: "4. square brackets",
+		question:
+			"The condition in an if/else statement is enclosed with _________.",
+		answers: ["quotes", "curly brackets", "parenthesis", "square brackets"],
 		questionAnswer: "parenthesis",
 	},
 	{
-		question3: "Arrays in JavaScript can be used to store _________.",
-		answer1: "1. numbers and strings",
-		answer2: "2. other arrays",
-		answer3: "3. booleans",
-		answer4: "4. all of the above",
+		question: "Arrays in JavaScript can be used to store _________.",
+		answers: [
+			"numbers and strings",
+			"other arrays",
+			"booleans",
+			"all of the above",
+		],
 		questionAnswer: "all of the above",
 	},
 	{
-		question4: "String values must be enclosed within _________ when being assigned to variables.",
-		answer1: "1. commas", 
-        answer2: "2. curly brackets", 
-        answer3: "3. quotes", 
-        answer4: "4. parenthesis",
+		question:
+			"String values must be enclosed within _________ when being assigned to variables.",
+		answers: ["commas", "curly brackets", "quotes", "parenthesis"],
 		questionAnswer: "curly brackets",
 	},
 	{
-		question5: "A very useful tool used during development and debugging for printing content to the debugger is _________.",
-		answer1: "1. JavaScript",
-        answer2: "2. terminal/bash",
-		answer3: "3. for loops",
-		answer4: "4. console.log",
+		question:
+			"A very useful tool used during development and debugging for printing content to the debugger is _________.",
+		answers: ["JavaScript", "terminal/bash", "for loops", "console.log"],
 		questionAnswer: "for loops",
 	},
 ];
 
 //start button clicked - hide start info and display first question
 startButton.addEventListener("click", showQuiz);
+
+//event listener for question answer
+button.addEventListener("click", quesResult);

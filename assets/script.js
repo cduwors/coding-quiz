@@ -2,7 +2,8 @@ var startButton = document.getElementById("startButton");
 var questionList = document.getElementById("quizQuestion");
 var questionNumber = 0;
 var answerList = document.getElementById("answerList");
-var button = console.log("page started");
+var answerButton = console.log("page started");
+var timerEl = document.getElementById("timer");
 
 //create event listener for start button that activates change to quiz questions (see bottom line)
 
@@ -15,6 +16,7 @@ function showQuiz() {
 	document.getElementById("finalBox").innerHTML = "";
 
 	console.log("In ShowQuiz function");
+	timer();
 	showQuestion();
 
 	//start timer
@@ -34,29 +36,46 @@ function showQuestion() {
 		var answers = quizQuestions[questionNumber].answers[i];
 		button.textContent = answers;
 		answerList.appendChild(button);
-	}
-}
-//check question
-function quesResult() {
-	console.log("in results function");
-	var results = document.createElement("h1");
-	if ((button = quizQuestions[questionNumber].questionAnswer[i])) {
-		results.textContent = "CORRECT!";
-		console.log("correct");
-	} else {
-		results.textContent = "SORRY, THAT IS INCORRECT.";
-		console.log("incorrect");
+		//event listener for question answer
+		button.addEventListener("click", function (event) {
+			var results = document.createElement("h1");
+			if (
+				event.target.textContent ===
+				quizQuestions[questionNumber].questionAnswer
+			) {
+				results.textContent = "CORRECT!";
+				console.log("correct");
+			} else {
+				results.textContent = "SORRY, THAT IS INCORRECT.";
+				console.log("incorrect");
+			}
+			answerList.appendChild(results);
+			//need to clear textContent
+			document.querySelector("#quizQuestion", "AnswerList");
+
+			questionNumber++;
+			showQuestion();
+		});
 	}
 }
 
-// // function displayAnswers() {
-// // 	for (let i = 0; i < quizQuestions.answers.length; i++) {
-// // 		const element = array[i];
-// // 	}
-// // }
-// //compare and check answer choice - display Correct! or Wrong!
-// //if wrong then subtract 10 seconds from timer
-// function compareAnswers() {}
+function timer() {
+	var timeLeft = 75;
+
+	// sets the function for the time interval variable
+	var timeInterval = setInterval(function () {
+		// creates if/else statement based on the time left:
+		if (timeLeft > 1) {
+			timerEl.textContent = "Timer: " + timeLeft;
+			timeLeft--;
+		} // set timer to stop at 0
+		else {
+			timerEl.textContent = "";
+			clearInterval(timeInterval);
+			displayMessage();
+		}
+	}, 1000);
+}
 
 //create question array
 const quizQuestions = [
@@ -97,6 +116,3 @@ const quizQuestions = [
 
 //start button clicked - hide start info and display first question
 startButton.addEventListener("click", showQuiz);
-
-//event listener for question answer
-button.addEventListener("click", quesResult);

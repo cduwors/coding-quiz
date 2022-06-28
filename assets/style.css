@@ -105,7 +105,7 @@ p {
 	max-width: 80rem;
 }
 
-.highScores:hover {
+.viewHighScores:hover {
 	cursor: pointer;
 	color: var(--tertiary);
 }
@@ -114,4 +114,10 @@ p {
 	border-top: solid 5px lightgray;
 	font-size: 36px;
 	color: lightgray;
+}
+
+#highScoreList {
+	background-color: var(--tertiary);
+	padding: 10px;
+	margin: 5px;
 }

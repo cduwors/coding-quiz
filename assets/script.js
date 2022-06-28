@@ -118,7 +118,11 @@ function showResults() {
 }
 
 function finalBox() {
-	var playerId = document.getElementById("initials").value;
+	var playerId = document.getElementById("initials");
+	if (playerId) {
+		playerId = playerId.value;
+	}
+
 	var newScore = {
 		initials: playerId,
 		score: timeLeft,
@@ -129,7 +133,7 @@ function finalBox() {
 	document.getElementById("endBox").style.display = "none";
 	document.getElementById("finalBox").style.display = "block";
 
-	document.getElementById("header-items").style.display = "none";
+	// document.getElementById("header-items").style.display = "none";
 
 	highScores.push(newScore);
 
@@ -141,9 +145,6 @@ function showHighScores() {
 	var highScoreList = document.getElementById("highScoreList");
 	localStorage.getItem("playerScore");
 	for (let i = 0; i < highScores.length; i++) {
-		// Create a new element h2 in Js
-		//give the textcontent of that element the highscore values
-		//append that element to the highscorelist
 		var HighScoreListItem = document.createElement("h2");
 		HighScoreListItem.textContent = `${highScores[i].initials} : ${highScores[i].score} `;
 		highScoreList.appendChild(HighScoreListItem);
@@ -223,3 +224,5 @@ resetButton.addEventListener("click", reset);
 
 var clearScoresButton = document.getElementById("clearScoresButton");
 clearScoresButton.addEventListener("click", clearHighScores);
+
+document.getElementById("highScores").addEventListener("click", finalBox());

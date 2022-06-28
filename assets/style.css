@@ -81,6 +81,23 @@ p {
 	display: none;
 }
 
+#nextButton {
+	display: none;
+}
+
+#finishButton {
+	display: none;
+}
+
+#quizQuestion {
+	font-size: 30px;
+	text-align: center;
+}
+
+#results {
+	font-size: 30px;
+	text-align: center;
+}
 .answerList {
 	display: flex;
 	justify-content: center;

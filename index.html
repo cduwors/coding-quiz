@@ -10,11 +10,12 @@
 
 	<body>
 		<header id="header-items">
-			<div class="highScores">View High Scores
-                <a href="./highScoreList.html" id="highScores"></a>
-            </div>
-			<div class="timer">Time:</div>
-			<div class="timeLeft"></div>
+			<div class="highScores">
+				View High Scores
+				<a href="./highScoreList.html" id="highScores"></a>
+			</div>
+			<div id="timer"></div>
+			<div id="timeLeft"></div>
 		</header>
 		<br />
 
@@ -34,34 +35,42 @@
 		<!-- quiz question box -->
 		<section id="quizBox">
 			<div id="quizQuestion">
-                <!-- question inserted from Javascript array -->
+				<!-- question inserted from Javascript array -->
 			</div>
-			<div id="answerList">
-				<!-- answers inserted from Javascript array onto buttons-->
-			
+			<br />
+
+			<div id="answerList"></div>
+			<br />
+			<!-- answers inserted from Javascript array onto buttons-->
+
+			<div id="results"></div>
+			<div id="nextButton" class="button"><button>Next Question</button></div>
+			<div id="finishButton" class="button"><button>See Results</button></div>
 		</section>
 
 		<!-- End of quiz summary box-->
 		<section id="endBox">
 			<div class="title"><h1>All done!</h1></div>
-			<div class="quizResult">
+			<div id="quizResult">
 				<!-- score result inserted from Javascript -->
 			</div>
-			<div class="scoreSave">
+			<br />
+			<div id="scoreSave">
 				<!-- Input initials in Javascript to save score -->
-				<button class="submit-score">Submit</button>
 			</div>
+			<br />
+			<button id="submitScore" class="button">Submit</button>
 		</section>
 
-        <!-- final box showing high scores and option to redo quiz -->
+		<!-- final box showing high scores and option to redo quiz -->
 		<section id="finalBox">
 			<div class="title"><h1>HIGH SCORES</h1></div>
-			<div class="highScoreList">
+			<div id="highScoreList">
 				<!-- high score array displayed with Javascript -->
 			</div>
 			<div class="button">
-				<button class="start">Go Back</button>
-				<button class="clear">Clear High Scores</button>
+				<button id="restartButton">Go Back</button>
+				<button id="clearScoresButton">Clear High Scores</button>
 			</div>
 		</section>
 		<script src="assets/script.js"></script>

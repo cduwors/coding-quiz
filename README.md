@@ -22,6 +22,6 @@ Christina DuWors<br/>
 christinaduwors@gmail.com<br/>
 github.com/cduwors
 
-GitHub Repository: https://github.com/cduwors/coding_quiz
+GitHub Repository: https://github.com/cduwors/coding-quiz
 
-Deployed application: https://cduwors.github.io/coding_quiz/
+Deployed application: https://cduwors.github.io/coding-quiz/

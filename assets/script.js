@@ -225,4 +225,4 @@ resetButton.addEventListener("click", reset);
 var clearScoresButton = document.getElementById("clearScoresButton");
 clearScoresButton.addEventListener("click", clearHighScores);
 
-document.getElementById("highScores").addEventListener("click", finalBox());
+document.getElementById("highScores").addEventListener("click", finalBox);
